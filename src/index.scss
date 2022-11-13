@@ -2,6 +2,7 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
+  background-color: #eee;
 }
 
 * {
@@ -14,6 +15,8 @@ $colorPurple: #1E2A78;
 $colorPink: #FF2E4C;
 $colorRed: #E31019;
 $colorFocus: #4331FF;
+$colorBgr: white;
+$colorGreen: #00BCB4;
 
 .titleTodo {
   display: flex;
@@ -29,120 +32,94 @@ $colorFocus: #4331FF;
   -webkit-background-clip: text;
 }
 
-.todoCenter {
+.todo {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  flex-direction: column;
 
-.todo {
-  max-width: 530px;
-  position: relative;
-
-  &__flex, &__list {
+  &__infor {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
   }
 
   &__input {
-    width: 400px;
-    height: 50px;
-    border-radius: 12px;
-    border: 1px solid #333;
-    padding: 8px;
+    width: 230px;
+    padding: 0.5rem;
+    height: 2rem;
     outline: none;
-    transition: .3s all;
-
+    border-radius: 8px;
+    border: 1px solid #333;
     &:focus {
-      border: 1px solid $colorFocus;
+      border: 1px solid $colorFocus;  
     }
   }
 
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__name, &__desc {
+    font-weight: 500;
+  }
+
   &__btn {
-    padding: 12px 28px;
-    outline: none;
+    padding: 16px 28px;
     border: none;
-    color: white;
-    font-size: 1rem;
-    margin-left: 0.75rem;
+    outline: none;
+    color: $colorBgr;
+    font-size: 400;
+    background-color: $colorPurple;
     text-transform: uppercase;
-    border-radius: 8px;
-    background-color: #1E2A78;
-    backface-visibility: hidden;
     transition: .3s all;
+    border-radius: 8px 0 8px 0;
 
     &:hover {
       transform: scale(.98);
     }
 
-    &-red {
-      background-color: #E31019;
-    }
-  }
-
-  &__list {
-    margin-top: 1rem;
-
-    &:nth-child(n) {
-      background-color: #eee;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-  }
-
-  &__text {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #333;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .todo {
-    &__btn {
-      padding: 10px 16px;
-      font-size: 0.75rem;
+    &-gr {
+      background-color: $colorGreen;
     }
 
-    &__input {
-      width: 250px;
-    }
-
-    &__text {
-      font-size: 1rem;
-      font-weight: 500;
+    &-hidden {
+      display: none;
     }
   }
 }
 
-@media screen and (min-width: 375px) {
-  .todo {
-    &__btn {
-      padding: 10px 16px;
-      font-size: 0.75rem;
-    }
-
-    &__input {
-      width: 290px;
-    }
-
-    &__text {
-      font-size: 1rem;
-      font-weight: 500;
-    }
+.form {
+  width: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: $colorBgr;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  label {
+    margin-right: 1rem;
   }
 }
 
-@media screen and (min-width: 767px) {
-  .todo {
-    &__input {
-      width: 400px;
-    }
+.card {
+  width: 750px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0 0 1rem 0;
 
-    &__btn {
-      padding: 12px 28px;
-    }
-
+  &:not(:last-child) {
+    border-bottom: 1px solid #333;
   }
 }
+
+.line-through {
+  text-decoration: line-through;
+}
+
