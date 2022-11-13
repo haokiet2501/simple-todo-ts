@@ -13,6 +13,7 @@ body {
 $colorPurple: #1E2A78;
 $colorPink: #FF2E4C;
 $colorRed: #E31019;
+$colorFocus: #4331FF;
 
 .titleTodo {
   display: flex;
@@ -54,7 +55,7 @@ $colorRed: #E31019;
     transition: .3s all;
 
     &:focus {
-      border: 1px solid #1E2A78;
+      border: 1px solid $colorFocus;
     }
   }
 
@@ -130,5 +131,18 @@ $colorRed: #E31019;
       font-size: 1rem;
       font-weight: 500;
     }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .todo {
+    &__input {
+      width: 400px;
+    }
+
+    &__btn {
+      padding: 12px 28px;
+    }
+
   }
 }
